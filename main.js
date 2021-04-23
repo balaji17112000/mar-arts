@@ -4,14 +4,14 @@ var X = 0;
 var Y = c.height - c.height / 1.75;
 var imageHeight = c.height / 1.75;
 var imageWidth = c.width / 1.75;
-var timeleft = 10;
+var timeleft = 30;
 
     var downloadTimer = setInterval(function(){
     timeleft--;
     if(timeleft >= 0)
     document.getElementById("demo").innerHTML = "Time:" + timeleft + "S remaining";
     if(timeleft <=0){
-        document.getElementById("demo1").innerHTML = "Times up touch to restart";
+        document.getElementById("demo1").innerHTML = "Times reload to restart";
         clearInterval(downloadTimer);
         }
     },1000);
@@ -216,3 +216,6 @@ loadImages((images) => {
     }
   });
 });
+setTimeout(function() {
+  $('#mydiv').fadeOut('fast');
+}, 30000);
