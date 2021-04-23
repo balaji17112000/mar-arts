@@ -11,7 +11,7 @@ var timeleft = 30;
     if(timeleft >= 0)
     document.getElementById("demo").innerHTML = "Time:" + timeleft + "S remaining";
     if(timeleft <=0){
-        document.getElementById("demo1").innerHTML = "Times reload to restart";
+        document.getElementById("demo1").innerHTML = "Times up reload to restart";
         clearInterval(downloadTimer);
         }
     },1000);
