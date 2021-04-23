@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Mar-arts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" class="href" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row title">
+        <center><em>MARTIAL ARTS</center>
+        <center id="demo">  </center>
+        <center id="demo1">hurry up time is running out! </center>  
+      </div>
+      <!----my main content -->
+      <div class="row">
+        <section id="play">
+          <canvas id="myCanvas" width="1200px" height="600px"></canvas>
+          <div class="action">
+            <button
+              class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-black-700 rounded my-2 mx-2"
+              type="button"
+              id="punch"
+            >
+              Punch Z
+            </button>
+            <button
+              class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-2 mx-2"
+              type="button"
+              id="kick"
+            >
+              Kick X
+            </button>
+
+            <button
+              class="bg-yellow-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-2 mx-2"
+              type="button"
+              id="block"
+            >
+              Block C
+            </button>
+            <button
+              class="bg-gray-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-2 mx-2"
+              type="button"
+              id="backward"
+            >
+              Backward <b><</b>
+            </button>
+            <button
+              class="bg-gray-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-2 mx-2"
+              type="button"
+              id="jump"
+            >
+              Jump <b>^</b>
+            </button>
+            <button
+              class="bg-gray-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-2 mx-2"
+              type="button"
+              id="forward"
+            >
+              Forward <b>></b>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
