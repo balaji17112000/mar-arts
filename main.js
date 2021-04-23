@@ -118,25 +118,25 @@ let drawMovingAnimation = (ctx, images, animation, callback) => {
     let advanceCheck = () => {
       console.log("X= ", X);
       if (X <= -50) return (X = -50);
-      else if (X + imageWidth >= c.width + 50)
-        return (X = c.width - imageWidth + 50);
-      return (X += stepX * 5);
+      else if (X + imageWidth >= c.width + 10)
+        return (X = c.width - imageWidth + 10);
+      return (X += stepX * 2);
     };
     setTimeout(() => {
       ctx.clearRect(
         advanceCheck(),
-        Y - (stepY - 1) * 50,
+        Y - (stepY - 1) * 2,
         imageWidth,
         imageHeight
       );
       ctx.clearRect(
         (X += stepX * 5),
-        Y - (stepY + 1) * 50,
+        Y - (stepY + 1) * 2,
         imageWidth,
         imageHeight
       );
       ctx.drawImage(images["background"][0], 0, 0, c.width, c.height);
-      ctx.drawImage(image, X + stepX, Y - stepY * 50, imageWidth, imageHeight);
+      ctx.drawImage(image, X + stepX, Y - stepY * 20, imageWidth, imageHeight);
     }, index * 60);
   });
   // just an end function

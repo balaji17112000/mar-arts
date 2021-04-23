@@ -4,7 +4,7 @@
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #800000;
+  background: orange;
   color: #fff;
   height: 100%;
   line-height: 1.6;
@@ -16,8 +16,7 @@ body {
   font-weight:bold;
 }
 .container {
-  width: 100%;
-  height: 100%;
+  
   margin: 0;  
 }
 
@@ -27,10 +26,13 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
-  height: 100vh;
+  
   scroll-snap-align: center;
 }
-
+#canvas{
+  border: solid 1px blue;  
+  width: 100%;
+  object-fit: contain;
+} 
 
 
