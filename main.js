@@ -22,9 +22,7 @@ let loadImage = (src, callback) => {
   img.src = src;
 };
 
-/* for background */
 
-// generate image number to image path
 let imgToPath = (n, animation) => {
   if (animation === "background") {
     return "./data/" + animation + ".jpg";
@@ -44,7 +42,7 @@ let frames = {
 };
 
 let loadImages = (callback) => {
-  // to hold the loaded images
+  
   let images = {
     idle: [],
     kick: [],
@@ -66,16 +64,12 @@ let loadImages = (callback) => {
   ].forEach((animation) => {
     let animationFrames = frames[animation];
     cnt += animationFrames.length;
-    // iterating over te 22 frames
     animationFrames.forEach((n) => {
       let path = imgToPath(n, animation);
-      // load image with src and image callback
       loadImage(path, (image) => {
-        // do something with the image
         images[animation][n - 1] = image;
         cnt -= 1;
         if (cnt === 0) {
-          // calls draw image function callback
           callback(images);
         }
       });
@@ -103,18 +97,14 @@ let manipulateStep = (animation, index, len) => {
 };
 let drawMovingAnimation = (ctx, images, animation, callback) => {
   if (animation === "jump") {
-    animation = "idle"; // overriding animation in case of jump
+    animation = "idle"; 
   }
   images[animation].forEach((image, index) => {
-    // draw image every after i*100 ms ---> [100,200,300..]
-
-    // console.log("working on index : ", index);
     let [stepX, stepY] = manipulateStep(
       animation,
       index,
       images[animation].length
     );
-    // to check if it does not crosses the boundary
     let advanceCheck = () => {
       console.log("X= ", X);
       if (X <= -50) return (X = -50);
@@ -139,31 +129,26 @@ let drawMovingAnimation = (ctx, images, animation, callback) => {
       ctx.drawImage(image, X + stepX, Y - stepY * 20, imageWidth, imageHeight);
     }, index * 60);
   });
-  // just an end function
+ 
   setTimeout(callback, images[animation].length * 60);
 };
 
 let animate = (ctx, images, animation, callback) => {
-  // iterate over the loaded images
   let movableAnimation = ["forward", "backward", "jump"];
 
   if (!movableAnimation.includes(animation)) {
     images[animation].forEach((image, index) => {
-      // draw image every after i*100 ms ---> [100,200,300..]
       setTimeout(() => {
         ctx.clearRect(X, Y, imageWidth, imageHeight);
         ctx.drawImage(images["background"][0], 0, 0, c.width, c.height);
         ctx.drawImage(image, X, Y, imageWidth, imageHeight);
       }, index * 60);
     });
-    // just an end function
     setTimeout(callback, images[animation].length * 60);
   } else {
     drawMovingAnimation(ctx, images, animation, callback);
   }
 };
-
-// load Images and Run the animation
 loadImages((images) => {
   ctx.drawImage(images["background"][0], 0, 0, c.width, c.height);
 
